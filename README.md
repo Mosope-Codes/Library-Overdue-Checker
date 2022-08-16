@@ -1,3 +1,2 @@
-# Library-Overdue-Checker
-
-A program that computes the total overdue charges for library books
+# library-overdue-checker
+A program that computes the total charges for overdue library books
