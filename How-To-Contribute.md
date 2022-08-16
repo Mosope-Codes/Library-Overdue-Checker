@@ -1,3 +1,17 @@
+## Run Locally
+
+Clone the project
+
+```
+git clone https://github.com/Mosope-Codes/Library-Overdue-Checker.git
+```
+
+Go to the project directory
+
+```
+cd Library-Overdue-Checker
+```
+
 ## How to Contribute
   1. Create a new branch to make your changes:<br/>
   
