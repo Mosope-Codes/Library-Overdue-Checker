@@ -13,14 +13,14 @@
     </header>
     <main>
     <form action="display.html">
-            <label for="fname">Book Title:</label><br>
+            <label for="name">Book Title:</label><br>
             <input type="text" id="name" placeholder="Book title" />
-            <label for="fname">Due Date:</label><br>
-            <input type="text" id="date" placeholder="Due date" required/>
-            <label for="fname">Overdue Charge:</label><br>
-            <input type="text" id="date" placeholder="Overdue Charge" />
-            <label for="fname">Maximum Overdue Charge:</label><br>
-            <input type="text" id="date" placeholder="Max Overdue Charge" />
+            <label for="date">Due Date:</label><br>
+            <input type="date" id="date" required/>
+            <label for="charge">Overdue Charge:</label><br>
+            <input type="number" min="0.00" max="1000.00" step="0.01" id="number" placeholder="Overdue Charge" />
+            <label for="charge">Maximum Overdue Charge:</label><br>
+            <input type="number" id="number" min="0.00" max="1000.00" step="0.01" placeholder="Max Overdue Charge" />
             <br> <br>
             <button> <a href="display.html"> Submit</button>
     </form>
