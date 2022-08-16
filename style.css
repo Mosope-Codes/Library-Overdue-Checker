@@ -39,7 +39,7 @@
     margin: 15px;
     padding: 10px;
     font-size: 16px;
-    width: 30%;
+    width: 40%;
     cursor: pointer;
     
 }
@@ -65,21 +65,20 @@ form {
     font-size: 18px;
   }
 
-  input[type=text], select {
+  input[type=text], input[type="date"], input[type="number"], select {
     width: 100%;
     color: #294e6d;
-    font-size: 16px;
+    font-size: 14px;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
     border: none;
     box-shadow: 0 4px 30px rgba(58, 36, 107, 0.4);
- 
     border-radius: 5px;
     box-sizing: border-box;
   }
   label{
-    color: #395f7e;
+    color: #214a6b;
   }
   #home , #compare {
     margin: auto;
