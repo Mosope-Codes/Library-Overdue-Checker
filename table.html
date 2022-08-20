@@ -2,83 +2,97 @@
 <html>
 <head>
 	<title>Table</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="table-style.css">
 </head>
 <body>
 
-	<center>
+	<div class="display-books" id="input-table">
 		<table border="4">
 			<thead>
 				<tr>
 					<label for="name">Book Title:</label><br>
-            <input class="book-info" type="text" id="name" placeholder="Book title" value="Book1" />
+                    <input class="book-info" type="text" id="name" placeholder="Book title" value="Book1" />
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
 					<label for="date">Due Date:</label><br>
-            <input class="book-info" type="date" id="date" required/>
+                    <input class="book-info" type="date" id="date" required/>
 				</tr>
 				<tr>
 					<label for="charge">Overdue Charge:</label><br>
-            <input class="book-info" type="number" id="charge" placeholder="Overdue Charge" value="20" />
+                    <input class="book-info" type="number" id="charge" placeholder="Overdue Charge" value="20" />
 				</tr>
 				<tr>
 					<label for="charge">Maximum Overdue Charge:</label><br>
-            <input class="book-info" type="number" id="max-charge" placeholder="Max Overdue Charge" value="100" />
+                    <input class="book-info" type="number" id="max-charge" placeholder="Max Overdue Charge" value="100" />
 				</tr>
 				<tr id="btna">
-					<button class="display-info-btn" onclick="AddRow()">Add Book</button>
+					<button class="display-info-btn" onclick="addInfoTable()">Add Book</button>
 				</tr>
 			</tbody>
 		</table>
 
-		<table border="4" id="show">
-			<thead>
-				<tr>
-					<th>Book Title</th>
-					<th>Due Date</th>
-					<th>Overdue Charge</th>
-					<th>Maximum Overdue Charge</th>
-				</tr>
-			</thead>
-		</table>
-	</center>
-	
-	<script>
 		
-		var list1 = [];
-		var list2 = [];
-		var list3 = [];
-		var list4 = [];
 
-		var n = 1;
-		var x = 0;
+		<div class="checkbox" >
+			<span><input class="hide" type="checkbox"/>
+				<label for="hide">Compare Return Dates</label></span>
+	
+			</div>			
+	</div>
 
-		function AddRow(){
 
-			var AddRown = document.getElementById('show');
-			var NewRow = AddRown.insertRow(n);
+	<table border="4" class="display-table">
+		<thead>
+			<tr>
+				<th>Book Title</th>
+				<th>Due Date</th>
+				<th>Overdue Charge</th>
+				<th>Maximum Overdue Charge</th>
+			</tr>
+		</thead>
+	</table>
+	
+		<div class="compare" id="input-table">
+			<table border="4">
+				<thead>
+					<tr>
+						<label for="name">Book Title:</label><br>
+				<input class="book-info" type="text" id="name" placeholder="Book title" value="Book1" />
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<label for="date">Return Date:</label><br>
+				<input class="book-info" type="date" id="date" required/>
+					</tr>
+					<tr>
+						<label for="charge">Overdue Charge:</label><br>
+				
+					<tr id="btna">
+						<button class="display-info-btn" onclick="addTable()">Compare</button>
+						
+					</tr>
+				</tbody>
+			</table>
 
-			list1[x] = document.getElementById("name").value;
-			list2[x] = document.getElementById("date").value;
-			list3[x] = document.getElementById("charge").value;
-			list4[x] = document.getElementById("max-charge").value;
+			<table border="4" class="display-table">
+				<thead>
+					<tr>
+						<th>Book Title</th>
+						<th>Total Overdue Charge</th>
+					</tr>
+				</thead>
+			</table>
 
-			var cel1 = NewRow.insertCell(0);
-			var cel2 = NewRow.insertCell(1);
-			var cel3 = NewRow.insertCell(2);
-			var cel4 = NewRow.insertCell(3);
-
-			cel1.innerHTML = list1[x];
-			cel2.innerHTML = list2[x];
-			cel3.innerHTML = list3[x];
-			cel4.innerHTML = list4[x];
-
-			n++;
-			x++;
-		}
-
-	</script>
+			<div class="checkbox" >
+				<span><input class="hide" type="checkbox"/>
+					<label for="hide">Compare Return Dates</label></span>
+		
+			</div>
+		</div>
+		
+			<script src="functions.js" async defer></script>
 </body>
 </html>
