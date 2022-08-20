@@ -86,3 +86,18 @@ form {
   }
 
   
+  table{
+    
+    text-align: center;
+    background: rgb#333;
+    color: #fff;
+  
+  }
+  
+  #show th, #show td{
+    padding: 8px;
+  }
+  
+  #btna td input{
+    width: 100%;
+  }

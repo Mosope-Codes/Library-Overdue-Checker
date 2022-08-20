@@ -12,19 +12,23 @@
     <h1>Enter Book's Information</h1>
     </header>
     <main>
-    <form action="display.html">
+    <form action="display.html" id="info-form">
             <label for="name">Book Title:</label><br>
-            <input type="text" id="name" placeholder="Book title" />
+            <input class="book-info" type="text" id="name" placeholder="Book title" />
             <label for="date">Due Date:</label><br>
-            <input type="date" id="date" required/>
+            <input class="book-info" type="date" id="date" required/>
             <label for="charge">Overdue Charge:</label><br>
-            <input type="number" min="0.00" max="1000.00" step="0.01" id="number" placeholder="Overdue Charge" />
+            <input class="book-info" type="number" id="number" placeholder="Overdue Charge" />
             <label for="charge">Maximum Overdue Charge:</label><br>
-            <input type="number" id="number" min="0.00" max="1000.00" step="0.01" placeholder="Max Overdue Charge" />
+            <input class="book-info" type="number" id="number" placeholder="Max Overdue Charge" />
             <br> <br>
-            <button> <a href="display.html"> Submit</button>
+            <button class="display-info-btn">Submit</button>
     </form>
+    <p class="book-info-list"></p>
+
     </main>
+    <script src="script.js"></script>
+
     <footer>
         <p> © 2022 Learn 2 Code</p>
     </footer>
