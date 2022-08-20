@@ -54,7 +54,7 @@
     cursor: pointer;
     
 }
-#show-login :hover{
+#show-login:hover{
     background-color: rgb(88, 92, 145);
     color: #66849c;
     transition: 0.3s;
