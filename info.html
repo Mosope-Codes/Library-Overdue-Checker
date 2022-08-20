@@ -13,16 +13,44 @@
     </header>
     <main>
     <form action="display.html" id="info-form">
-            <label for="name">Book Title:</label><br>
-            <input class="book-info" type="text" id="name" placeholder="Book title" />
-            <label for="date">Due Date:</label><br>
-            <input class="book-info" type="date" id="date" required/>
-            <label for="charge">Overdue Charge:</label><br>
-            <input class="book-info" type="number" id="number" placeholder="Overdue Charge" />
-            <label for="charge">Maximum Overdue Charge:</label><br>
-            <input class="book-info" type="number" id="number" placeholder="Max Overdue Charge" />
-            <br> <br>
-            <button class="display-info-btn">Submit</button>
+        <div class="display-books" id="input-table">
+            <table border="4">
+                <thead>
+                    <h2>Book Information:</h2> 
+                </thead>
+                <tbody>
+                    <tr>
+                        <label for="name">Book Title:</label><br>
+                        <input class="book-info" type="text" id="name" placeholder="Book title" value="Book1" />
+                    </tr>
+                    <tr>
+                        <label for="date">Due Date:</label><br>
+                        <input class="book-info" type="date" id="date" required/>
+                    </tr>
+                    <tr>
+                        <label for="charge">Overdue Charge:</label><br>
+                        <input class="book-info" type="number" id="charge" placeholder="Overdue Charge" value="20" />
+                    </tr>
+                    <tr>
+                        <label for="max-charge">Maximum Overdue Charge:</label><br>
+                        <input class="book-info" type="number" id="max-charge" placeholder="Max Overdue Charge" value="100" />
+                    </tr>
+                    <tr id="btna">
+                        <button class="display-info-btn" onclick="addInfoTable()">Add Book</button>
+                    </tr>
+                </tbody>
+            </table>
+    
+            
+    
+            <!-- <div class="checkbox" >
+                <span><input class="hide" type="checkbox"/>
+                    <label for="hide">Compare Return Dates</label></span>
+        
+                </div>			 -->
+        </div>
+    
+    
     </form>
     <p class="book-info-list"></p>
 

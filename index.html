@@ -6,10 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library Overdue Checker</title>
     <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
     <div class="index">
+      
     <header>
+        <img src="books.jpg" alt="books">
+        <div id="app-info">
     <h1>Library Overdue Checker</h1> <br>
     <p>An app that computes the total charges for overdue library books. Let's do this, shall we? <br>
          For each library book, you can enter the due date and (optionally), the overdue charge per day, the maximum overdue charge, and of course, the title. <br>
@@ -18,16 +22,65 @@
          You can also enter different return dates to compare the overdue charges. 
     </p> <br>
     </header>
+
     <main>
-    <button> <a href="info.html"> Enter in book info</a></button>
-    <button> <a href="compare.html"> Compare return dates</a></button> 
-    <br>
+    <button id="show-login">Enter Book Info</button> 
+    <button id="show-login"> <a href="table.html"> Compare Return Dates </a></button>
     <br>
     <hr>
+  </div>
     </main>
+    
+  </div>
+
+  <div class="table-div">
+    <table border="4" class="display-table">
+      <thead>
+        <tr>
+          <th>Book Title</th>
+          <th>Due Date</th>
+          <th>Overdue Charge</th>
+          <th>Maximum Overdue Charge</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+ 
+
     <footer>
         <p> © 2022 Learn 2 Code</p>
     </footer>
-</div>
+   </div>
+
+  <div class="popup">
+    <div class="close-btn">&times;</div>
+    <div class="form">
+      <h2>Book's Information</h2>
+      <div class="form-element">
+        <label for="name">Book Title:</label><br>
+        <input type="text" id="name" placeholder="Book title" />
+      </div>
+      <div class="form-element">
+        <label for="date">Due Date:</label><br>
+        <input type="date" id="date" required/>
+      </div>
+      <div class="form-element">
+        <label for="charge">Overdue Charge:</label><br>
+        <input class="book-info" type="number" id="charge" placeholder="Overdue Charge" value="20" />
+      </div>
+      <div class="form-element">
+        <label for="charge">Maximum Overdue Charge:</label><br>
+        <input class="book-info" type="number" id="max-charge" placeholder="Max Overdue Charge" value="100" />
+    </div>
+    <div class="form-element checkbox">
+        <input type="checkbox" class="hide" id="remember-me">
+        <label for="hide">View Books</label>
+      </div>
+      <div class="form-element">
+        <button id="btna" class="display-info-btn" onclick="addInfoTable()"> Add Book</button>
+      </div>
+    </div>
+  </div>  
+  <script src="app.js" defer></script>
 </body>
 </html>
