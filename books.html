@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Library Overdue Checker</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="book-style.css">
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td>
+                    <form onsubmit="event.preventDefault(); updateTable();">
+                    <div>
+                        <label>Book ID</label><br>
+                        <input type="text" id="book-id"/><br>
+                    </div>
+                    <div>
+                        <label>Date Borrowed</label><br>
+                        <input type="date" id="date-borrowed"/><br>
+                    </div>
+                    <div class="form-action-button">
+                        <input type="submit" value="Submit" />
+                    </div>
+                    </form>
+                </td>
+
+                <td>
+                    <table class="list" id="book-list">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Due(days)</th>
+                                <th>Author</th>
+                                <th>Overdue Charge</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </td>
+
+            </tr>
+        </table>
+        
+        <script src="functions.js" async defer></script>
+    </body>
+</html>
