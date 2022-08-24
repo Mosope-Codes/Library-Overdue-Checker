@@ -1,12 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=PT+Serif:regular,italic,700,700italic');
 
 * {
-    margin: 0;
-    padding: 0;
+    max-width: 100%;
+    margin: 0px;
     box-sizing: border-box;
     font-family:'PT Serif', sans-serif;
-
   }
+
+.index{
+  height: 100%;
+	width: 100%;
+	background-position: center;
+	background-size: cover;
+	position: absolute;
+}
+
   img{
   height: 20vh;
   margin-left: auto;
@@ -15,26 +23,25 @@
 
   }
   body{
-    height: 100vh;
-    width: 100%;
-    overflow: scroll;
+    min-height: 100vh;
+    max-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     background: linear-gradient(#035e53, #374947);
-    margin-left: 10px;
   }
  h1, p{
     color: rgb(192, 196, 255); 
+    opacity: 0.6;
  }
  main{
-    padding: 50px;
+    padding: 2%;
  }
  header{
     box-shadow: 0 4px 30px rgba(0,0,0,0.2);
-    width: 100%;
-    margin: 0 auto;
+    width: 80%;
+    margin: 20px auto;
     padding: 30px;
     border-radius: 10px;
  }
@@ -47,10 +54,9 @@
     color: rgb(192, 196, 255);
     border: none;
     border-radius: 10px;
-    margin: 15px;
     padding: 10px;
     font-size: 16px;
-    width: 25%;
+    width: 15%;
     cursor: pointer;
     
 }
@@ -77,11 +83,12 @@
   left:50%;
   opacity:0;
   transform:translate(-50%,-50%) scale(1.25);
-  width:380px;
+  width: 55%;
   padding:20px 30px;
-  background:#4b7570;
+  background:#366e68;
   box-shadow:2px 2px 5px 5px rgba(0,0,0,0.15);
   border-radius:10px;
+  /* overflow: hidden; */
   transition:top 0ms ease-in-out 200ms,
              opacity 200ms ease-in-out 0ms,
              transform 200ms ease-in-out 0ms; 
@@ -107,27 +114,14 @@
   border-radius:25px;
   cursor:pointer;
 }
-.popup .form h2 {
-  text-align:center;
-  color:rgb(48, 45, 45);
-  margin:10px 0px 20px;
-  font-size:25px;
-}
-.popup .form .form-element {
-  margin:15px 0px;
-  text-align: center;
-  padding: 0 16px;
-  font-size: 18px;
-}
-.popup .form .form-element label {
-  font-size:14px;
+
+ label {
+  font-size:16px;
   font-weight: 700;
   color:rgb(48, 45, 45);
 }
-.popup .form .form-element input[type="text"],
-.popup .form .form-element input[type="date"],
-.popup .form .form-element input[type="number"],
-.popup .form .form-element input[type="password"] {
+
+input[type=text], input[type=date] {
   width:100%;
   outline:none;
   color: rgb(48, 45, 45);
@@ -140,45 +134,63 @@
   border-radius: 5px;
   box-sizing: border-box;
 }
-.popup .form .form-element input[type="checkbox"] {
-  margin-right:5px;
-}
-.popup .form .form-element button {
+
+input[type=submit]{
   width:100%;
   height:40px;
   border:none;
   outline:none;
   font-size:16px;
+  margin: 15px 0;
   background: rgb(48, 45, 45);
   color:#888;
   border-radius:10px;
   cursor:pointer;
 }
-.popup .form .form-element a {
-  display:block;
-  text-align:center;
-  font-size:15px;
-  color:#888;
-  text-decoration:none;
-  font-weight:600;
+
+body > table{
+  width: 80%;
 }
-table {
-    text-align: center;
-    background: rgb#333;
-    color: #fff;
-    border: 1px solid black;
-    border-collapse: collapse;
-  }
-  .display-table th, .display-table td{
-    padding: 8px;
-    margin: auto;
-  }
-  
-  #btna td input{
-    width: 100%;
-  }
 
-  .compare{
-    display: none;
-  }
+table{
+  border-collapse: collapse;
+}
+table.list{
+  width:100%;
+}
 
+td, th {
+  text-align: left;
+  padding: 8px;
+}
+tr:nth-child(even),table.list thead>tr {
+  background: rgb(48, 45, 45);
+  color:#888;
+  font-size: 14px;
+}
+
+form div.form-action-buttons{
+  text-align: right;
+}
+
+label.validation-error{
+  color:   red;
+  margin-left: 5px;
+}
+
+.hide{
+  display:none;
+}
+
+@media screen and (max-width: 768px) {
+	.popup {
+    width: 93%;
+  }
+  #show-login {
+    padding: 5px;
+    width: 20%;
+  }
+  #show-login:hover{
+    padding: 6px;
+}
+}
