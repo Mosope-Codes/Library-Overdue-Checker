@@ -1,107 +1,68 @@
+class Library{
+
+    constructor(id, title, dueDate, author, overdueCharge){
+        this.id = id;
+        this.title = title;
+        this.dueDate = dueDate;
+        this.author = author;
+        this.overdueCharge = overdueCharge;
+        
+    }
+}
+
+let firstBook = new Library(1, 'Faith', 10, 'Hagin', 100);
+let secondBook = new Library(2, 'Hope', 20, 'Hagin', 200);
+let thirdBook = new Library(3, 'Charity', 30, 'Hagin', 250);
+
+let books = [firstBook, secondBook, thirdBook];
+
+function updateTable(){
+    
+    books.forEach(function(book){
+
+    let table = document.getElementById('book-list').getElementsByTagName('tbody')[0];
+    let newRow = table.insertRow(table.length);   
+    let bookId = document.getElementById('book-id').value;
+    let dateBorrowed = document.getElementById('date-borrowed').value;
+    
+    
+        const MillisecondsPerDay = 86400000; 
+        let daysForBookToBeDue = (book.dueDate * MillisecondsPerDay) +  new Date(dateBorrowed).getTime(); 
+        let currentDate = Date.now();
+        let daysRemained = Math.round((daysForBookToBeDue - currentDate)/MillisecondsPerDay);
+        
+        if(bookId == book.id){
+            cell1 = newRow.insertCell(0);
+            cell1.innerHTML = book.title;
+            cell2 = newRow.insertCell(1);
+            cell2.innerHTML = book.dueDate;
+            cell3 = newRow.insertCell(2);
+            cell3.innerHTML = book.author;
+            cell4 = newRow.insertCell(3);
+            cell4.innerHTML = book.overdueCharge + ' Naira';
+            cell5 = newRow.insertCell(4);
+            if(daysRemained < 0){
+                cell5.innerHTML = 'Overdue by '+ Math.abs(daysRemained) + ' days';               
+            }else{
+                cell5.innerHTML = 'Due in '+ daysRemained + ' days';
+            }
+            
+            cell6 = newRow.insertCell(5);
+            if(daysRemained < 0){
+                cell6.innerHTML = (book.overdueCharge * Math.abs(daysRemained)) + ' Naira';
+            }else{
+                cell6.innerHTML = 'Not yet due';
+            }
+        }
+
+    })
+
+}
+
 document.querySelector("#show-login").addEventListener("click",function(){
     document.querySelector(".popup").classList.add("active");
   });
   document.querySelector(".popup .close-btn").addEventListener("click",function(){
     document.querySelector(".popup").classList.remove("active");
   });
-
-
-
-  const addInfoTable = function(){
-    var list1 = [];
-    var list2 = [];
-    var list3 = [];
-    var list4 = [];
-
-    var n = 1;
-    var x = 0;
-
-    function AddRow(){
-
-        var AddRown = document.querySelector('.display-table');
-        var NewRow = AddRown.insertRow(n);
-
-        list1[x] = document.getElementById("name").value;
-        list2[x] = document.getElementById("date").value;
-        list3[x] = document.getElementById("charge").value;
-        list4[x] = document.getElementById("max-charge").value;
-        
-
-        
-
-        var cel1 = NewRow.insertCell(0);
-        var cel2 = NewRow.insertCell(1);
-        var cel3 = NewRow.insertCell(2);
-        var cel4 = NewRow.insertCell(3);
-    
-
-
-
-        cel1.innerHTML = list1[x];
-        cel2.innerHTML = list2[x];
-        cel3.innerHTML = list3[x];
-        cel4.innerHTML = list4[x];
-        
-
-
-        n++;
-        x++;
-    }
-AddRow();
-}
-
-// const addDisplayTable = function(){
-//     var list1 = [];
-//     var list2 = [];
-
-//     var n = 1;
-//     var x = 0;
-
-//     function AddRow(){
-
-//         var AddRown = document.getElementById('display-table');
-//         var NewRow = AddRown.insertRow(n);
-
-//         list1[x] = document.getElementById("name").value;
-//         list2[x] = document.getElementById("date").value;
-//         list3[x] = document.getElementById("charge").value;
-//         list4[x] = document.getElementById("max-charge").value;
-    
-
-    
-
-//         var cel1 = NewRow.insertCell(0);
-//         var cel2 = NewRow.insertCell(1);
-//         var cel3 = NewRow.insertCell(2);
-//         var cel4 = NewRow.insertCell(3);
-
-
-
-
-//         cel1.innerHTML = list1[x];
-//         cel2.innerHTML = list2[x];
-//         cel3.innerHTML = list3[x];
-//         cel4.innerHTML = list4[x];
-    
-
-
-//         n++;
-//         x++;
-//     }
-// AddRow();
-// }
-
-const bookList = document.querySelector('.display-books');
-const compareDate = document.querySelector('.compare');
-const hideBooks = document.querySelector('.hide');
-hideBooks.addEventListener('change', function(e){
-if(hideBooks.checked){
-    bookList.style.display = 'none';
-    compareDate.style.display = 'block';
-}else{
-    bookList.style.display = 'block';
-    compareDate.style.display = 'none';
-    
-}
-})
-
+  
