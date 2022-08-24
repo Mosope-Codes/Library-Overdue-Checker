@@ -6,61 +6,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library Overdue Checker</title>
     <link rel="stylesheet" href="style.css">
-    <script src="app.js" defer></script>
 </head>
 <body>
-    <div class="index">
-    <header>
-        <img src="books.jpg" alt="books">
-    <h1>Library Overdue Checker</h1> <br>
-    <p>An app that computes the total charges for overdue library books. Let's do this, shall we? <br>
-         For each library book, you can enter the due date and (optionally), the overdue charge per day, the maximum overdue charge, and of course, the title. <br>
-         If the optional values are not entered, then the preset values are used. <br>
-         A complete list of the book information is displayed when you're done entering the input data. <br>
-         You can also enter different return dates to compare the overdue charges. 
-    </p> <br>
-    </header>
+    <div class="index">  
+      <header>
+          <img src="books.jpg" alt="books">
+          <div id="app-info">
+      <h1>Library Overdue Checker</h1> <br>
+      <p>An app that computes the total charges for overdue library books. Let's do this, shall we? <br>
+          For each library book, you can enter the due date and (optionally), the overdue charge per day, the maximum overdue charge, and of course, the title. <br>
+          If the optional values are not entered, then the preset values are used. <br>
+          A complete list of the book information is displayed when you're done entering the input data. <br>
+          You can also enter different return dates to compare the overdue charges. 
+      </p> <br>
+      </header>
 
     <main>
-    <button id="show-login">Enter Book Info</button> 
-    <button id="show-login"> <a href="table.html"> Compare Return Dates </a></button>
+    <button id="show-login"> Books </button>
     <br>
-    <hr>
+    
     </main>
-
+  </div>
     <footer>
         <p> © 2022 Learn 2 Code</p>
     </footer>
-   </div>
+  
+    <div class="popup">
+      <div class="close-btn">&times;</div>
+      <div class="form">
+      <table>
+      <tr>
+          <td>
+              <form onsubmit="event.preventDefault(); updateTable();">
+              <div>
+                  <label>Book ID</label><br>
+                  <input type="text" id="book-id"/><br>
+              </div>
+              <div>
+                  <label>Date Borrowed</label><br>
+                  <input type="date" id="date-borrowed"/><br>
+              </div>
+              <div class="form-action-button">
+                  <input type="submit" value="Submit" />
+              </div>
+              </form>
+          </td>
 
-  <div class="popup">
-    <div class="close-btn">&times;</div>
-    <div class="form">
-      <h2>Book's Information</h2>
-      <div class="form-element">
-        <label for="name">Book Title:</label><br>
-        <input type="text" id="name" placeholder="Book title" />
+          <td>
+              <table class="list" id="book-list">
+                  <thead>
+                      <tr>
+                          <th>Title</th>
+                          <th>Due(days)</th>
+                          <th>Author</th>
+                          <th>Overdue Charge</th>
+                          <th>Status</th>
+                          <th>Charge</th>
+
+                      </tr>
+                  </thead>
+                  <tbody>
+
+                  </tbody>
+              </table>
+          </td>
+      </tr>
+      </table>
       </div>
-      <div class="form-element">
-        <label for="date">Due Date:</label><br>
-        <input type="date" id="date" required/>
       </div>
-      <div class="form-element">
-        <label for="charge">Overdue Charge:</label><br>
-        <input class="book-info" type="number" id="charge" placeholder="Overdue Charge" value="20" />
-      </div>
-      <div class="form-element">
-        <label for="charge">Maximum Overdue Charge:</label><br>
-        <input class="book-info" type="number" id="max-charge" placeholder="Max Overdue Charge" value="100" />
-    </div>
-    <div class="form-element">
-        <input type="checkbox" class="hide" id="remember-me">
-        <label for="hide">Compare Return Dates</label>
-      </div>
-      <div class="form-element">
-        <button id="btna" class="display-info-btn" onclick="addInfoTable()"> <a href="table.html"> Submit </a></button>
-      </div>
-    </div>
-  </div>  
+   </div>
+  </div>
+   <script src="app.js" async defer></script>
 </body>
 </html>
