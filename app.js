@@ -1,129 +1,81 @@
-document.addEventListener('DOMContentLoaded', function(){
+class Library{
 
-// const titles = document.getElementsByClassName('title');
-// Array.from(titles).forEach(function(item){
-//     console.log(item);
-// })
-
-// const books = document.querySelector('#book-list li .name');
-// console.log(books)
-
-
-// for(i=0; i < books.length; i++){
-//     console.log(books[i]);
-// }
-// var books = document.querySelectorAll('#book-list li .name');
-// Array.from(books).forEach(function(book){
-//     console.log(book.textContent);
-// })
-
-// var bookList = document.querySelector('#book-list');
-// bookList.innerHTML = '<h5> Hallelujah, I\'m getting DOM </h5>;'
-// var banner = document.querySelector('#page-banner');
-// console.log('#page-banner node type is: ', banner.nodeType);
-
-// var banner = document.querySelector('#page-banner');
-// banner.cloneNode(true);
-
-// var bookList = document.querySelector('#book-list');
-// console.log(bookList.parentNode);
-
-// console.log(bookList.previousElementSibling);
-
-// bookList.previousElementSibling.querySelector('p').innerHTML += 'Yes';
-
-
-
-// //Delete Button
-// var deleteButton = document.querySelectorAll('#book-list .delete');
-// for(i=0; i < deleteButton.length; i++){
-//     deleteButton[i].addEventListener('click', function(e){
-//         var getLi = e.target.parentElement;
-
-//         getLi.parentNode.removeChild(getLi);
-//     })
-// }
-
-// Delete Book
-const list = document.querySelector('#book-list ul');
-
-//Delete book
-list.addEventListener('click', function(e){
-    if(e.target.className === 'delete'){
-        const li = e.target.parentElement
-        list.removeChild(li);
+    constructor(id, title, dueDate, author, overdueCharge){
+        this.id = id;
+        this.title = title;
+        this.dueDate = dueDate;
+        this.author = author;
+        this.overdueCharge = overdueCharge;
+        
     }
-})
+}
 
-// Add book
-const addBook = document.forms['add-book'];
-addBook.addEventListener('submit', function(e){
-    e.preventDefault();
-    const value = addBook.querySelector('input[type="text"]').value
+let firstBook = new Library(01, 'ABC Of Faith', 10, 'Hagin', 100);
+let secondBook = new Library(02, 'Art Of Prayer', 5, 'Hagin', 250);
+let thirdBook = new Library(03, 'Believers\' Authority ', 5, 'Hagin', 250);
+let fourthBook = new Library(04, 'Following God\'s Plan For Your Life ', 5, 'Hagin', 250);
+let fifthBook = new Library(05, 'Growing Up Spiritually ', 8, 'Hagin', 100);
+let sixthBook = new Library(06, 'Holy Spirit And His Gifts', 7, 'Hagin', 150);
+let seventhBook = new Library(07, 'How You Can Be Led By The Spirit ', 8, 'Hagin', 100);
+let eigthBook = new Library(08, 'Love The Way To Victory', 6, 'Hagin', 150);
+let ninthBook = new Library(09, 'Plans Purposes & Pursuits', 8, 'Hagin', 150);
+let tenthBook = new Library(10, 'Spirit Within Spirit Upon', 8, 'Hagin', 100);
+
+
+let books = [
+    firstBook, secondBook, thirdBook, 
+    fourthBook, fifthBook, sixthBook, seventhBook,
+    eigthBook, ninthBook, tenthBook
+];
+
+function updateTable(){
     
-//Create the list, name and button
-    var li = document.createElement('li');
-    var bookName = document.createElement('span');
-    var deleteBtn = document.createElement('span');
+    books.forEach(function(book){
 
-//set the contents of the list and button
-    bookName.textContent = value
-    deleteBtn.textContent = "delete"
-
-// Add Class Name
-    bookName.classList.add('name');
-    deleteBtn.classList.add('delete');
-   
-// Append to the ul
-    li.appendChild(bookName);
-    li.appendChild(deleteBtn);
-    list.appendChild(li)
-
-
-})
-
-//Hide books
-const hideBooks = document.querySelector('#hide');
-hideBooks.addEventListener('change', function(e){
-    if(hideBooks.checked){
-        list.style.display = 'none';
-    }else{
-        list.style.display = 'block';
-    }
-})
-
-//Search Books
-const searchBook = document.forms['search-books'].querySelector('input');
-searchBook.addEventListener('keyup', function(e){
-    const term = e.target.value.toLowerCase();
-    const books = list.getElementsByTagName('li');
-    for(i=0; i < books.length; i++){
-        const title = books[i].firstElementChild.textContent;
-        if(title.toLowerCase().indexOf(term) !== -1){
-            books[i].style.display = 'block';
-        }else{
-            books[i].style.display = 'none';
-        }
-    }
-
-
-})
-
-//tabbed content
-const tabs = document.querySelector('.tabs');
-const panels = document.querySelectorAll('.panel');
-tabs.addEventListener('click', function(e){
-    if(e.target.tagName === 'LI'){
-        const targetPanel = document.querySelector(e.target.dataset.target);
-        for(i=0; i < panels.length; i++){
-            if(panels[i] === targetPanel){
-                panels[i].classList.add('active');
+    let table = document.getElementById('book-list').getElementsByTagName('tbody')[0];
+    let newRow = table.insertRow(table.length);   
+    let bookId = document.getElementById('book-id').value;
+    let dateBorrowed = document.getElementById('date-borrowed').value;
+    
+    
+        const MillisecondsPerDay = 86400000; 
+        let daysForBookToBeDue = (book.dueDate * MillisecondsPerDay) +  new Date(dateBorrowed).getTime(); 
+        let currentDate = Date.now();
+        let daysRemained = Math.round((daysForBookToBeDue - currentDate)/MillisecondsPerDay);
+        
+        if(Number(bookId) === book.id){
+            cell1 = newRow.insertCell(0);
+            cell1.innerHTML = book.title;
+            cell2 = newRow.insertCell(1);
+            cell2.innerHTML = book.dueDate;
+            cell3 = newRow.insertCell(2);
+            cell3.innerHTML = book.author;
+            cell4 = newRow.insertCell(3);
+            cell4.innerHTML = book.overdueCharge + ' Naira';
+            cell5 = newRow.insertCell(4);
+            if(daysRemained < 0){
+                cell5.innerHTML = 'Overdue by '+ Math.abs(daysRemained) + ' days';               
             }else{
-                panels[i].classList.remove('active');
+                cell5.innerHTML = 'Due in '+ daysRemained + ' days';
+            }
+            
+            cell6 = newRow.insertCell(5);
+            if(daysRemained < 0){
+                cell6.innerHTML = (book.overdueCharge * Math.abs(daysRemained)) + ' Naira';
+            }else{
+                cell6.innerHTML = 'Not yet due';
             }
         }
-    }
-})
 
-})
+    })
+
+}
+
+document.querySelector("#show-login").addEventListener("click",function(){
+    document.querySelector(".popup").classList.add("active");
+  });
+  document.querySelector(".popup .close-btn").addEventListener("click",function(){
+    document.querySelector(".popup").classList.remove("active");
+  });
+  
 

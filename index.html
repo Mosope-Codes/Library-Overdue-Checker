@@ -8,26 +8,85 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="index">
-    <header>
-    <h1>Library Overdue Checker</h1> <br>
-    <p>An app that computes the total charges for overdue library books. Let's do this, shall we? <br>
-         For each library book, you can enter the due date and (optionally), the overdue charge per day, the maximum overdue charge, and of course, the title. <br>
-         If the optional values are not entered, then the preset values are used. <br>
-         A complete list of the book information is displayed when you're done entering the input data. <br>
-         You can also enter different return dates to compare the overdue charges. 
-    </p> <br>
-    </header>
+    <div class="index">  
+      <header>
+          <img src="books.jpg" alt="books">
+          <div id="app-info">
+      <h1>Library Overdue Checker</h1> <br>
+      <h2>Books We Have</h2><br>
+      <div id="books-display">
+        <ul >
+            <li >01.   ABC Of Faith</li>
+            <li>02.   Art Of Prayer</li>
+            <li>03.   Believers' Authority</li>
+            <li>04.   Following God's Plan For Your Life</li>
+            <li>05.   Growing Up Spiritually</li>
+            <li>06.   Holy Spirit And His Gifts</li>
+            <li>07    How You Can Be Led By The Spirit</li>
+            <li>08    Love The Way To Victory</li>
+            <li>09    Plans Purposes & Pursuits</li>
+            <li>10    Spirit Within Spirit Upon</li> 
+
+        </ul>
+      </div>
+      
+      </header>
+
     <main>
-    <button> <a href="info.html"> Enter in book info</a></button>
-    <button> <a href="compare.html"> Compare return dates</a></button> 
+    <button id="show-login"> Books </button>
     <br>
-    <br>
-    <hr>
+    
     </main>
+  </div>
     <footer>
         <p> © 2022 Learn 2 Code</p>
     </footer>
-</div>
+  
+    <div class="popup">
+      <div class="close-btn">&times;</div>
+      <div class="form">
+      <table>
+      <tr>
+          <td>
+              <form onsubmit="event.preventDefault(); updateTable();">
+              <div>
+                  <label>Book ID</label><br>
+                  <input type="text" id="book-id"/><br>
+              </div>
+              <div>
+                  <label>Date Borrowed</label><br>
+                  <input type="date" id="date-borrowed" required/><br>
+              </div>
+              <div class="form-action-button">
+                  <input type="submit" value="Submit" />
+              </div>
+              </form>
+          </td>
+
+          <td>
+              <table class="list" id="book-list">
+                  <thead>
+                      <tr>
+                          <th>Title</th>
+                          <th>Due(days)</th>
+                          <th>Author</th>
+                          <th>Overdue Charge Per Day</th>
+                          <th>Status</th>
+                          <th>Overdue Charge</th>
+
+                      </tr>
+                  </thead>
+                  <tbody>
+
+                  </tbody>
+              </table>
+          </td>
+      </tr>
+      </table>
+      </div>
+      </div>
+   </div>
+  </div>
+   <script src="app.js" async defer></script>
 </body>
 </html>

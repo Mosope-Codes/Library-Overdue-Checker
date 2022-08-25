@@ -1,29 +1,54 @@
+
+@import url('https://fonts.googleapis.com/css?family=PT+Serif:regular,italic,700,700italic');
+
 * {
-    margin: 0;
-    padding: 0;
+    max-width: 100%;
+    margin: 0px;
     box-sizing: border-box;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family:'PT Serif', sans-serif;
+  }
+
+.index{
+  height: 100%;
+	width: 100%;
+	background-position: center;
+	background-size: cover;
+	position: absolute;
+}
+
+  img{
+  height: 20vh;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+
   }
   body{
-    height: 100vh;
-    width: 100%;
-    overflow: hidden;
+    min-height: 100vh;
+    max-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: linear-gradient(#2196f3, #e91e63);
+    background: linear-gradient(#035e53, #374947);
   }
- h1, p{
-    color: rgb(192, 196, 255); 
+ h1,h2, p{
+    color: #c0c4ff; 
+    opacity: 0.6;
  }
+
+ #books-display{
+  color: #ef922f; 
+  opacity: 0.6;
+  font-size: larger;
+}
  main{
-    padding: 50px;
+    padding: 2%;
  }
  header{
     box-shadow: 0 4px 30px rgba(0,0,0,0.2);
-    width: 100%;
-    margin: 0 auto;
+    width: 80%;
+    margin: 20px auto;
     padding: 30px;
     border-radius: 10px;
  }
@@ -31,19 +56,18 @@
     text-decoration: none;
     color:rgb(192, 196, 255);
  }
- button{
-    background-color:#66849c;
+ #show-login {
+    background-color: #5f7d95;
     color: rgb(192, 196, 255);
     border: none;
     border-radius: 10px;
-    margin: 15px;
     padding: 10px;
     font-size: 16px;
-    width: 40%;
+    width: 15%;
     cursor: pointer;
     
 }
-button:hover{
+#show-login:hover{
     background-color: rgb(88, 92, 145);
     color: #66849c;
     transition: 0.3s;
@@ -54,50 +78,127 @@ button:hover{
     position: fixed;
     bottom: 0;
     left: 0;
-    background-color: rgb(138, 132, 132);
+    background-color: #5f7d95;
     width: 100%;
     text-align: center;
     padding: 1vh;
 }
-form {
-    text-align: center;
-    padding: 0 16px;
-    font-size: 18px;
-  }
 
-  input[type=text], input[type="date"], input[type="number"], select {
-    width: 100%;
-    color: #294e6d;
-    font-size: 14px;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: none;
-    box-shadow: 0 4px 30px rgba(58, 36, 107, 0.4);
-    border-radius: 5px;
-    box-sizing: border-box;
-  }
-  label{
-    color: #214a6b;
-  }
-  #home , #compare {
-    margin: auto;
-    width: 70%;
-  }
+.popup {
+  position:absolute;
+  top:-150%;
+  left:50%;
+  opacity:0;
+  transform:translate(-50%,-50%) scale(1.25);
+  width: 55%;
+  padding:20px 30px;
+  background:#366e68;
+  box-shadow:2px 2px 5px 5px rgba(0,0,0,0.15);
+  border-radius:10px;
+  /* overflow: hidden; */
+  transition:top 0ms ease-in-out 200ms,
+             opacity 200ms ease-in-out 0ms,
+             transform 200ms ease-in-out 0ms; 
+}
+.popup.active {
+  top:50%;
+  opacity:1;
+  transform:translate(-50%,-50%) scale(1);
+  transition:top 0ms ease-in-out 0ms,
+             opacity 200ms ease-in-out 0ms,
+             transform 200ms ease-in-out 0ms;
+}
+.popup .close-btn {
+  position:absolute;
+  top:20px;
+  right:20px;
+  width:25px;
+  height:25px;
+  background:#888;
+  color:#eee;
+  text-align:center;
+  line-height:25px;
+  border-radius:25px;
+  cursor:pointer;
+}
 
-  
-  table{
-    
-    text-align: center;
-    background: rgb#333;
-    color: #fff;
-  
+ label {
+  font-size:16px;
+  font-weight: 700;
+  color:rgb(48, 45, 45);
+}
+
+input[type=text], input[type=date] {
+  width:100%;
+  outline:none;
+  color: rgb(48, 45, 45);
+  font-size: 14px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: none;
+  box-shadow: 0 4px 30px rgba(71, 52, 112, 0.2);
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+input[type=submit]{
+  width:100%;
+  height:40px;
+  border:none;
+  outline:none;
+  font-size:16px;
+  margin: 15px 0;
+  background: rgb(48, 45, 45);
+  color:#888;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+body > table{
+  width: 80%;
+}
+
+table{
+  border-collapse: collapse;
+}
+table.list{
+  width:100%;
+}
+
+td, th {
+  text-align: left;
+  padding: 8px;
+}
+tr:nth-child(even),table.list thead>tr {
+  background: rgb(48, 45, 45);
+  color:#888;
+  font-size: 14px;
+}
+
+form div.form-action-buttons{
+  text-align: right;
+}
+
+label.validation-error{
+  color:   red;
+  margin-left: 5px;
+}
+
+.hide{
+  display:none;
+}
+
+@media screen and (max-width: 768px) {
+	.popup {
+    width: 93%;
   }
-  
-  #show th, #show td{
-    padding: 8px;
+  #show-login {
+    padding: 5px;
+    width: 20%;
   }
-  
-  #btna td input{
-    width: 100%;
-  }
+  #show-login:hover{
+    padding: 6px;
+}
+}
+
