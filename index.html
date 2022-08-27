@@ -8,29 +8,53 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="index">  
-      <header>
-          <img src="books.jpg" alt="books">
-          <div id="app-info">
-      <h1>Library Overdue Checker</h1> <br>
-      <p>An app that computes the total charges for overdue library books. Let's do this, shall we? <br>
-          For each library book, you can enter the due date and (optionally), the overdue charge per day, the maximum overdue charge, and of course, the title. <br>
-          If the optional values are not entered, then the preset values are used. <br>
-          A complete list of the book information is displayed when you're done entering the input data. <br>
-          You can also enter different return dates to compare the overdue charges. 
-      </p> <br>
-      </header>
+    <div class="container">
+        <div class="left">
+            <div class="inner-container">
+                <img
+                    class="bg-mobile"
+                    src="Library-pana.svg"
+                    alt="background mobile"
+                />
+                <h1>
+                    <span>Library</span>
+                    <br />
+                    Overdue
+                    <br />
+                    Checker
+                </h1>
 
-    <main>
-    <button id="show-login"> Books </button>
-    <br>
-    
-    </main>
-  </div>
-    <footer>
+                <p>
+                    Here's a list of the books available in the Library and their respective ID's.  
+                    <ul >
+                        <li >ABC Of Faith - 01</li>
+                        <li>Art Of Prayer - 02</li>
+                        <li>Believer's Authority - 03</li>
+                        <li>Following God's Plan For Your Life - 04</li>
+                        <li>Growing Up Spiritually - 05</li>
+                        <li>Holy Spirit And His Gifts - 06</li>
+                        <li>How You Can Be Led By The Spirit - 07</li>
+                        <li>Love The Way To Victory - 08</li>
+                        <li>Plans Purposes & Pursuits - 09</li>
+                        <li>Spirit Within Spirit Upon - 10</li> 
+                    </ul>
+                </p>
+
+                <div class="arrow">
+                    <button id="show-login">
+                        <img src="icon-arrow.svg" alt="arrow" />
+                    </button>
+                </div>
+      <footer>
         <p> © 2022 Learn 2 Code</p>
-    </footer>
-  
+      </footer>
+            </div>
+        </div>
+
+        <div class="right bg-image"></div>
+    </div>
+
+  <!-- Pop-up form and table. -->
     <div class="popup">
       <div class="close-btn">&times;</div>
       <div class="form">
@@ -44,7 +68,7 @@
               </div>
               <div>
                   <label>Date Borrowed</label><br>
-                  <input type="date" id="date-borrowed"/><br>
+                  <input type="date" id="date-borrowed" required/><br>
               </div>
               <div class="form-action-button">
                   <input type="submit" value="Submit" />
@@ -59,9 +83,9 @@
                           <th>Title</th>
                           <th>Due(days)</th>
                           <th>Author</th>
-                          <th>Overdue Charge</th>
+                          <th>Overdue Charge Per Day</th>
                           <th>Status</th>
-                          <th>Charge</th>
+                          <th>Overdue Charge</th>
 
                       </tr>
                   </thead>

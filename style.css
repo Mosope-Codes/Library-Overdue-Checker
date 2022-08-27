@@ -1,82 +1,121 @@
-@import url('https://fonts.googleapis.com/css?family=PT+Serif:regular,italic,700,700italic');
-
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:200,400,600&display=swap');
 * {
-    max-width: 100%;
-    margin: 0px;
-    box-sizing: border-box;
-    font-family:'PT Serif', sans-serif;
-  }
+	box-sizing: border-box;
+}
 
-.index{
-  height: 100%;
-	width: 100%;
-	background-position: center;
+body {
+	font-family: 'Josefin Sans', sans-serif;
+	margin: 0;
+}
+
+.container {
+	display: flex;
+	min-height: 100vh;
+}
+
+.left {
+	background-image: url('bg-pattern-desktop.svg');
 	background-size: cover;
+	background-position: center center;
+	padding: 0 40px 40px;
+	width: 60%;
+}
+
+.inner-container {
+	max-width: 450px;
+	margin: auto;
+}
+
+.right {
+	width: 40%;
+}
+
+.bg-image {
+	background-image: url('Library-pana.svg');
+  background-repeat: no-repeat;
+  max-height: fit-content;
+  max-width: 40%;
+  height: auto;
+	background-position: center center;
+}
+
+.bg-mobile {
+	display: none;
+}
+
+h1 {
+	color: hsl(0, 6%, 24%);
+	font-size: 40px;
+	letter-spacing: 10px;
+	line-height: 1.1;
+	margin-bottom: 0;
+	transform: translateX(-100%);
+	text-transform: uppercase;
+	animation: comeinleft 0.5s ease forwards;
+}
+
+h1 span {
+	color: white;
+	font-weight: 200;
+}
+
+p {
+	color: hsl(0, 6%, 24%);
+  font-weight: 600;
+	line-height: 26px;
+	margin: 30px 0;
+	transform: translateX(100%);
+	opacity: 0;
+	animation: comeinright 0.5s ease forwards;
+}
+
+li {
+color: hsl(0, 6%, 24%);
+line-height: 20px;
+font-weight: 600;
+margin: 8px 0;
+}
+
+.arrow {
+  position: relative;
+	transform: translateX(-100%);
+	animation: comeinleft 0.5s ease forwards;
+}
+
+button {
+	background-image: linear-gradient(135deg, #5c8f83, #366e68);
+	box-shadow: 2px 5px 10px hsla(0, 6%, 24%, 0.5);
+	border: none;
+	border-radius: 50px;
+	cursor: pointer;
+	padding: 10px;
 	position: absolute;
+	top: 0;
+	right: 0;
+	transition: opacity 0.2s ease;
+	height: 50px;
+	width: 100px;
 }
 
-  img{
-  height: 20vh;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-
-  }
-  body{
-    min-height: 100vh;
-    max-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: linear-gradient(#035e53, #374947);
-  }
- h1, p{
-    color: rgb(192, 196, 255); 
-    opacity: 0.6;
- }
- main{
-    padding: 2%;
- }
- header{
-    box-shadow: 0 4px 30px rgba(0,0,0,0.2);
-    width: 80%;
-    margin: 20px auto;
-    padding: 30px;
-    border-radius: 10px;
- }
- a {
-    text-decoration: none;
-    color:rgb(192, 196, 255);
- }
- #show-login {
-    background-color: #5f7d95;
-    color: rgb(192, 196, 255);
-    border: none;
-    border-radius: 10px;
-    padding: 10px;
-    font-size: 16px;
-    width: 15%;
-    cursor: pointer;
-    
-}
-#show-login:hover{
-    background-color: rgb(88, 92, 145);
-    color: #66849c;
-    transition: 0.3s;
-    padding: 11px;
-    border-radius: 10px;
-}
- footer{
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    background-color: #5f7d95;
-    width: 100%;
-    text-align: center;
-    padding: 1vh;
+button:hover {
+	opacity: 0.6;
 }
 
+/* Animations */
+@keyframes comeinleft {
+	to {
+		transform: translateX(0);
+	}
+}
+
+@keyframes comeinright {
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+/* Styling for Pop-up form and table. */
 .popup {
   position:absolute;
   top:-150%;
@@ -162,11 +201,13 @@ table.list{
 td, th {
   text-align: left;
   padding: 8px;
+  font-size: 13px;
 }
+
 tr:nth-child(even),table.list thead>tr {
   background: rgb(48, 45, 45);
   color:#888;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 form div.form-action-buttons{
@@ -182,15 +223,29 @@ label.validation-error{
   display:none;
 }
 
-@media screen and (max-width: 768px) {
-	.popup {
+
+/* Media Queries for all.. */
+@media screen and (max-width: 600px) {
+	.bg-mobile {
+		display: block;
+		margin-left: -40px;
+		margin-right: -40px;
+		width: calc(100% + 80px);
+	}
+
+	h1 {
+		font-size: 30px;
+	}
+
+	.left {
+		width: 100%;
+	}
+
+	.right {
+		display: none;
+	}
+  .popup {
     width: 93%;
   }
-  #show-login {
-    padding: 5px;
-    width: 20%;
-  }
-  #show-login:hover{
-    padding: 6px;
 }
-}
+
