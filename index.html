@@ -42,7 +42,7 @@
 
                 <div class="arrow">
                     <button id="show-login">
-                        <img src="icon-arrow.svg" alt="arrow" />
+                      <img src="icon-arrow.svg" alt=""> 
                     </button>
                 </div>
       <footer>
@@ -54,10 +54,8 @@
         <div class="right bg-image"></div>
     </div>
 
-  <!-- Pop-up form and table. -->
-    <div class="popup">
-      <div class="close-btn">&times;</div>
-      <div class="form">
+  <!--form and table. -->
+      <div class="form" id="form">
       <table>
       <tr>
           <td>
@@ -75,7 +73,6 @@
               </div>
               </form>
           </td>
-
           <td>
               <table class="list" id="book-list">
                   <thead>
@@ -83,10 +80,9 @@
                           <th>Title</th>
                           <th>Due(days)</th>
                           <th>Author</th>
-                          <th>Overdue Charge Per Day</th>
+                          <th>Overdue Charge Per Day (in &#8358)</th>
                           <th>Status</th>
-                          <th>Overdue Charge</th>
-
+                          <th>Overdue Charge (in &#8358)</th>
                       </tr>
                   </thead>
                   <tbody>
@@ -97,9 +93,6 @@
       </tr>
       </table>
       </div>
-      </div>
-   </div>
-  </div>
    <script src="app.js" async defer></script>
 </body>
 </html>

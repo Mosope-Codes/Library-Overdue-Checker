@@ -6,11 +6,17 @@
 body {
 	font-family: 'Josefin Sans', sans-serif;
 	margin: 0;
+  /* overflow: hidden; */
 }
 
 .container {
+
+  right: 0;
+  left: 0;
+  top: 0;
 	display: flex;
 	min-height: 100vh;
+  color: #c1e2df;
 }
 
 .left {
@@ -69,6 +75,11 @@ p {
 	animation: comeinright 0.5s ease forwards;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
+
 li {
 color: hsl(0, 6%, 24%);
 line-height: 20px;
@@ -95,10 +106,20 @@ button {
 	transition: opacity 0.2s ease;
 	height: 50px;
 	width: 100px;
+  color: white;
+  font-size: 17px;
+  font-weight: 600;
 }
 
 button:hover {
 	opacity: 0.6;
+}
+.form {
+  box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+  width: 60%;
+  margin: 20px auto;
+  padding: 30px;
+  border-radius: 10px;
 }
 
 /* Animations */
@@ -115,45 +136,7 @@ button:hover {
 	}
 }
 
-/* Styling for Pop-up form and table. */
-.popup {
-  position:absolute;
-  top:-150%;
-  left:50%;
-  opacity:0;
-  transform:translate(-50%,-50%) scale(1.25);
-  width: 55%;
-  padding:20px 30px;
-  background:#366e68;
-  box-shadow:2px 2px 5px 5px rgba(0,0,0,0.15);
-  border-radius:10px;
-  /* overflow: hidden; */
-  transition:top 0ms ease-in-out 200ms,
-             opacity 200ms ease-in-out 0ms,
-             transform 200ms ease-in-out 0ms; 
-}
-.popup.active {
-  top:50%;
-  opacity:1;
-  transform:translate(-50%,-50%) scale(1);
-  transition:top 0ms ease-in-out 0ms,
-             opacity 200ms ease-in-out 0ms,
-             transform 200ms ease-in-out 0ms;
-}
-.popup .close-btn {
-  position:absolute;
-  top:20px;
-  right:20px;
-  width:25px;
-  height:25px;
-  background:#888;
-  color:#eee;
-  text-align:center;
-  line-height:25px;
-  border-radius:25px;
-  cursor:pointer;
-}
-
+/* form and table. */
  label {
   font-size:16px;
   font-weight: 700;
@@ -182,50 +165,36 @@ input[type=submit]{
   font-size:16px;
   margin: 15px 0;
   background: rgb(48, 45, 45);
-  color:#888;
+  color: white;
   border-radius:10px;
   cursor:pointer;
 }
 
-body > table{
-  width: 80%;
-}
 
-table{
-  border-collapse: collapse;
+table { 
+  width: 100%; 
+  border-collapse: collapse; 
 }
-table.list{
-  width:100%;
+/* Zebra striping */
+tr:nth-of-type(odd) { 
+  background: #eee; 
 }
-
-td, th {
-  text-align: left;
-  padding: 8px;
-  font-size: 13px;
+th { 
+  background: #333; 
+  color: white; 
+  font-weight: bold; 
 }
-
-tr:nth-child(even),table.list thead>tr {
-  background: rgb(48, 45, 45);
-  color:#888;
-  font-size: 13px;
-}
-
-form div.form-action-buttons{
-  text-align: right;
-}
-
-label.validation-error{
-  color:   red;
-  margin-left: 5px;
-}
-
-.hide{
-  display:none;
+td, th { 
+  padding: 6px; 
+  border: 1px solid #ccc; 
+  text-align: left; 
 }
 
 
 /* Media Queries for all.. */
-@media screen and (max-width: 600px) {
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
 	.bg-mobile {
 		display: block;
 		margin-left: -40px;
@@ -234,9 +203,24 @@ label.validation-error{
 	}
 
 	h1 {
-		font-size: 30px;
+		font-size: 20px;
+    letter-spacing: 5px;
+    line-height: 1;
+    margin-bottom: 0;
 	}
-
+  
+  p {
+    line-height: 15px;
+    margin: 10px 0;
+   }
+  
+  li {
+  color: hsl(0, 6%, 24%);
+  line-height: 14px;
+  font-weight: 600;
+  margin: 8px 0;
+  }
+  
 	.left {
 		width: 100%;
 	}
@@ -244,8 +228,43 @@ label.validation-error{
 	.right {
 		display: none;
 	}
-  .popup {
-    width: 93%;
-  }
+
+table, thead, tbody, th, td, tr { 
+  display: block; 
 }
+
+thead tr { 
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+} */
+
+tr { border: 1px solid #ccc; }
+
+ /* td { 
+  border: none;
+  border-bottom: 1px solid #eee; 
+  position: relative;
+  padding-left: 50%; 
+} */
+
+td:before { 
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: 45%; 
+  padding-right: 10px; 
+  white-space: nowrap;
+} 
+
+td:nth-of-type(1):before { content: "Title: "; }
+td:nth-of-type(2):before { content: "Due(days): "; }
+td:nth-of-type(3):before { content: "Author: "; }
+td:nth-of-type(4):before { content: "Overdue Charge Per Day (in Naira): "; }
+td:nth-of-type(5):before { content: "Status: "; }
+td:nth-of-type(6):before { content: "0verdue Charge (in Naira): "; }
+
+}
+
+
 
