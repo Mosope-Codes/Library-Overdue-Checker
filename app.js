@@ -54,9 +54,9 @@ function updateTable(){
             cell4.innerHTML = book.overdueCharge;
             cell5 = newRow.insertCell(4);
             if(daysRemained < 0){
-                cell5.innerHTML = 'Overdue by '+ Math.abs(daysRemained) + ' days';               
+                cell5.innerHTML = 'Overdue by '+ Math.abs(daysRemained) + ' day(s)';               
             }else{
-                cell5.innerHTML = 'Due in '+ daysRemained + ' days';
+                cell5.innerHTML = 'Due in '+ daysRemained + ' day(s)';
             }
             
             cell6 = newRow.insertCell(5);
