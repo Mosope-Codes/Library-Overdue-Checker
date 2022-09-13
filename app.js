@@ -1,4 +1,4 @@
-class Library{
+class Book{
 
     constructor(id, title, dueDate, author, overdueCharge){
         this.id = id;
@@ -10,16 +10,16 @@ class Library{
     }
 }
 
-let firstBook = new Library(01, 'ABC Of Faith', 10, 'Hagin', 100);
-let secondBook = new Library(02, 'Art Of Prayer', 5, 'Hagin', 250);
-let thirdBook = new Library(03, 'Believers\' Authority ', 5, 'Hagin', 250);
-let fourthBook = new Library(04, 'Following God\'s Plan For Your Life ', 5, 'Hagin', 250);
-let fifthBook = new Library(05, 'Growing Up Spiritually ', 8, 'Hagin', 100);
-let sixthBook = new Library(06, 'Holy Spirit And His Gifts', 7, 'Hagin', 150);
-let seventhBook = new Library(07, 'How You Can Be Led By The Spirit ', 8, 'Hagin', 100);
-let eigthBook = new Library(08, 'Love The Way To Victory', 6, 'Hagin', 150);
-let ninthBook = new Library(09, 'Plans Purposes & Pursuits', 8, 'Hagin', 150);
-let tenthBook = new Library(10, 'Spirit Within Spirit Upon', 8, 'Hagin', 100);
+let firstBook = new Book(01, 'ABC Of Faith', 10, 'Hagin', 100);
+let secondBook = new Book(02, 'Art Of Prayer', 5, 'Hagin', 250);
+let thirdBook = new Book(03, 'Believers\' Authority ', 5, 'Hagin', 250);
+let fourthBook = new Book(04, 'Following God\'s Plan For Your Life ', 5, 'Hagin', 250);
+let fifthBook = new Book(05, 'Growing Up Spiritually ', 8, 'Hagin', 100);
+let sixthBook = new Book(06, 'Holy Spirit And His Gifts', 7, 'Hagin', 150);
+let seventhBook = new Book(07, 'How You Can Be Led By The Spirit ', 8, 'Hagin', 100);
+let eigthBook = new Book(08, 'Love The Way To Victory', 6, 'Hagin', 150);
+let ninthBook = new Book(09, 'Plans Purposes & Pursuits', 8, 'Hagin', 150);
+let tenthBook = new Book(10, 'Spirit Within Spirit Upon', 8, 'Hagin', 100);
 
 
 let books = [
